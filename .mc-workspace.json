@@ -1,0 +1,11 @@
+{
+  "taskId": "10be69b1-a90b-4668-bdcd-ab359d859ec5",
+  "productId": "b13349ae-88d5-4246-b235-03839dedd7fa",
+  "createdAt": "2026-04-18T11:47:39.506Z",
+  "strategy": "worktree",
+  "branch": "autopilot/h-th-ng-c-nh-b-o-b-t-th-ng-gi-tr-c-khi-publish-c-n",
+  "baseBranch": "main",
+  "baseCommit": "530eac4df70daf52b911dc537407eaddcd220b35",
+  "status": "active",
+  "isolatedPort": 4206
+}

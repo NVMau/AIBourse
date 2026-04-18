@@ -1,4 +1,4 @@
-import { PriceProvenance } from "./provenance";
+import type { PriceProvenance } from "./provenance.ts";
 
 const cache = new Map<string, PriceProvenance>();
 
