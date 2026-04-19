@@ -104,13 +104,18 @@ function mergeEventsByBucket(
   };
 
   const seen = new Set<string>();
+  const scopedDedupKey = (scope: "price" | "benchmark" | "throughput" | "context", baseKey: string) =>
+    `${scope}:${baseKey}`;
 
   for (const event of events.prices) {
-    const k = dedupKey({
-      modelId: event.modelId,
-      capturedAtIso: event.capturedAtIso,
-      sourceId: event.source.sourceId,
-    });
+    const k = scopedDedupKey(
+      "price",
+      dedupKey({
+        modelId: event.modelId,
+        capturedAtIso: event.capturedAtIso,
+        sourceId: event.source.sourceId,
+      }),
+    );
     if (seen.has(k)) continue;
     seen.add(k);
 
@@ -120,12 +125,15 @@ function mergeEventsByBucket(
   }
 
   for (const event of events.benchmarks) {
-    const k = dedupKey({
-      modelId: event.modelId,
-      group: event.group,
-      capturedAtIso: event.capturedAtIso,
-      sourceId: event.source.sourceId,
-    });
+    const k = scopedDedupKey(
+      "benchmark",
+      dedupKey({
+        modelId: event.modelId,
+        group: event.group,
+        capturedAtIso: event.capturedAtIso,
+        sourceId: event.source.sourceId,
+      }),
+    );
     if (seen.has(k)) continue;
     seen.add(k);
 
@@ -135,11 +143,14 @@ function mergeEventsByBucket(
   }
 
   for (const event of events.throughputs) {
-    const k = dedupKey({
-      modelId: event.modelId,
-      capturedAtIso: event.capturedAtIso,
-      sourceId: event.source.sourceId,
-    });
+    const k = scopedDedupKey(
+      "throughput",
+      dedupKey({
+        modelId: event.modelId,
+        capturedAtIso: event.capturedAtIso,
+        sourceId: event.source.sourceId,
+      }),
+    );
     if (seen.has(k)) continue;
     seen.add(k);
 
@@ -149,11 +160,14 @@ function mergeEventsByBucket(
   }
 
   for (const event of events.contexts) {
-    const k = dedupKey({
-      modelId: event.modelId,
-      capturedAtIso: event.capturedAtIso,
-      sourceId: event.source.sourceId,
-    });
+    const k = scopedDedupKey(
+      "context",
+      dedupKey({
+        modelId: event.modelId,
+        capturedAtIso: event.capturedAtIso,
+        sourceId: event.source.sourceId,
+      }),
+    );
     if (seen.has(k)) continue;
     seen.add(k);
 
