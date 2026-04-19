@@ -1,0 +1,11 @@
+{
+  "taskId": "e5935902-3c90-421a-a212-e8bfe40b581f",
+  "productId": "b13349ae-88d5-4246-b235-03839dedd7fa",
+  "createdAt": "2026-04-19T10:26:01.080Z",
+  "strategy": "worktree",
+  "branch": "autopilot/audit-mode-truy-xu-t-ngu-n-g-c-t-ng-con-s-gi-",
+  "baseBranch": "main",
+  "baseCommit": "530eac4df70daf52b911dc537407eaddcd220b35",
+  "status": "active",
+  "isolatedPort": 4209
+}
