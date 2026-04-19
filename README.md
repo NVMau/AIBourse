@@ -1,10 +1,14 @@
-# AIBourse - Per-Cell Provenance Tooltip
+# AIBourse - Data Contracts & UI Models
 
-This repository was initialized with a minimal implementation for price-cell provenance metadata.
+This workspace now contains foundational contracts for model detail timeline snapshots and provenance metadata.
 
-## Added
+## Existing
 - Provenance model attached to normalized price records
 - Client-side provenance cache helpers
 - Tooltip model carrying source URL, fetched time, confidence, parser version, raw snippet
-- Quick-open action for source verification
-- Accessibility hints for hover/focus and expanded panel label
+
+## Added for task 4c489bef-223c-43e8-90dc-9f281b808df8
+- `src/model-snapshot-contract.ts`: strict contract requiring full `price + benchmark + throughput + context` before snapshot write
+- `src/model-snapshot-pipeline.ts`: validation, dedup, timestamp alignment, hold-only fallback policy, annotation generation
+- `src/model-detail-ui.ts`: mapping unified snapshots to timeline series + separated benchmark panels
+- `docs/model-snapshot-spec.md`: implementation spec and extension guidance
