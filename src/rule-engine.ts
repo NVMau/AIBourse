@@ -1,4 +1,4 @@
-import { PriceChangeEvent, TriggeredAlert, TriggeredAlertReason, WatchRule } from "./watchlist";
+import type { PriceChangeEvent, TriggeredAlert, TriggeredAlertReason, WatchRule } from "./watchlist.ts";
 
 function percentageChange(previousPrice: number, currentPrice: number) {
   if (previousPrice === 0) {

@@ -1,4 +1,4 @@
-import { TriggeredAlert, TriggeredAlertReason } from "./watchlist";
+import type { TriggeredAlert, TriggeredAlertReason } from "./watchlist.ts";
 
 function renderReason(reason: TriggeredAlertReason) {
   if (reason.kind === "drop") {

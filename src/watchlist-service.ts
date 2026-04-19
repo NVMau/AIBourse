@@ -1,14 +1,18 @@
-import { AlertNotifier } from "./notifier";
-import { WatchlistRuleEngine } from "./rule-engine";
-import { WatchlistStore } from "./watchlist-store";
-import { PriceChangeEvent, TriggeredAlert, Watchlist } from "./watchlist";
+import { AlertNotifier } from "./notifier.ts";
+import { WatchlistRuleEngine } from "./rule-engine.ts";
+import { WatchlistStore } from "./watchlist-store.ts";
+import type { PriceChangeEvent, TriggeredAlert, Watchlist } from "./watchlist.ts";
 
 export class WatchlistService {
-  constructor(
-    private readonly store: WatchlistStore,
-    private readonly engine: WatchlistRuleEngine,
-    private readonly notifier: AlertNotifier,
-  ) {}
+  private readonly store: WatchlistStore;
+  private readonly engine: WatchlistRuleEngine;
+  private readonly notifier: AlertNotifier;
+
+  constructor(store: WatchlistStore, engine: WatchlistRuleEngine, notifier: AlertNotifier) {
+    this.store = store;
+    this.engine = engine;
+    this.notifier = notifier;
+  }
 
   upsertWatchlist(workspaceId: string, next: Omit<Watchlist, "createdAtIso" | "updatedAtIso">): Watchlist {
     const now = new Date().toISOString();

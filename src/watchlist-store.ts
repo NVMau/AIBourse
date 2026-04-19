@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
-import { Watchlist } from "./watchlist";
+import type { Watchlist } from "./watchlist.ts";
 
 export type WatchlistStore = {
   save(workspaceId: string, watchlist: Watchlist): void;
@@ -8,7 +8,11 @@ export type WatchlistStore = {
 };
 
 export class FileWatchlistStore implements WatchlistStore {
-  constructor(private readonly basePath: string) {}
+  private readonly basePath: string;
+
+  constructor(basePath: string) {
+    this.basePath = basePath;
+  }
 
   private filePath(workspaceId: string) {
     return `${this.basePath}/${workspaceId}.watchlist.json`;
