@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit Mode Deliverable</title>
+  <style>body{font-family:Arial,sans-serif;max-width:900px;margin:24px auto;line-height:1.5}code{background:#f3f3f3;padding:2px 6px;border-radius:4px}</style>
+</head>
+<body>
+  <h1>Audit Mode: truy xuất nguồn gốc từng con số giá</h1>
+  <p><strong>Task ID:</strong> e5935902-3c90-421a-a212-e8bfe40b581f</p>
+  <h2>Implemented</h2>
+  <ul>
+    <li>Data contract provenance mở rộng cho metric giá/throughput/context/benchmark.</li>
+    <li>Validation bắt buộc cho trường provenance + checksum + thứ tự timestamp crawl/fetch.</li>
+    <li>API contract helper: <code>GET /api/provenance/:recordId</code>, <code>GET /api/models/:modelId/provenance</code>.</li>
+    <li>UI models cho tooltip audit nhanh và drawer audit đầy đủ.</li>
+    <li>Spec tài liệu fallback policy và trade-off tại <code>AUDIT_MODE_SPEC.md</code>.</li>
+  </ul>
+  <h2>PR</h2>
+  <p><a href="https://github.com/NVMau/AIBourse/pull/5">https://github.com/NVMau/AIBourse/pull/5</a></p>
+</body>
+</html>
